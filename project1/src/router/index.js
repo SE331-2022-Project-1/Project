@@ -7,6 +7,8 @@ import EventLayout from "@/views/event/EventLayout.vue";
 import DetailEvent from "@/views/event/DetailEvent.vue";
 import VaccinatedEvent from "@/views/event/VaccinatedEvent.vue";
 import CommentEvent from "@/views/event/CommentEvent.vue";
+import NotFoundView from "@/views/NotFoundView.vue";
+import NetWorkErrorView from "@/views/NetworkErrorView.vue";
 
 const routes = [
   {
@@ -46,6 +48,22 @@ const routes = [
         component: CommentEvent,
       },
     ],
+  },
+  {
+    path: "/404/:resource",
+    name: "404Resource",
+    component: NotFoundView,
+    props: true,
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: NotFoundView,
+  },
+  {
+    path: "/network-error",
+    name: "NetworkError",
+    component: NetWorkErrorView,
   },
 ];
 
