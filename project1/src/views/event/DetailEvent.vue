@@ -1,5 +1,5 @@
 <template>
-  <h3>Name: {{ event.name + " " + event.surname }}</h3>
+  <h3>Patient Name: {{ event.name + " " + event.surname }}</h3>
   <p>Age: {{ event.age }}</p>
   <p>Hometown: {{ event.homeTown }}</p>
 </template>
