@@ -22,16 +22,21 @@
     </ul>
   </div>
 
-  <div></div>
+  <div>
+    <!-- <review-form @review-submitted="addReview"></review-form>
+<review-list v-if="reviews.length" :reviews="reviews"></review-list> -->
+    <button @click="dummy">dummy target</button>
+  </div>
 </template>
-
-<review-form @review-submitted="addReview"></review-form>
-<review-list v-if="reviews.length" :reviews="reviews"></review-list>
 
 <script>
 export default {
   props: ["id", "event"],
-
+  reviews: {
+    type: Array,
+    required: true,
+  },
+  inject: ["GStore"],
   data() {
     return {
       reviews: [
@@ -64,6 +69,19 @@ export default {
 
       this.nameD = "";
       this.comment = "";
+      //flashMessage bruv Meme machine
+      this.GStore.flashMessage = "your commit comment is " + this.comment;
+      console.log("eyyo inject done");
+      setTimeout(() => {
+        this.GStore.flashMessage = "";
+      }, 3000);
+    },
+    dummy() {
+      this.GStore.flashMessage = "test";
+      console.log("eyyo inject done");
+      setTimeout(() => {
+        this.GStore.flashMessage = "Oh yeah cock and balls";
+      }, 3000);
     },
   },
 };
