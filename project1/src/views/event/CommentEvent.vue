@@ -1,9 +1,70 @@
 <template>
-  <p>Docter comment here</p>
+  <h3>Patient Name: {{ event.name + " " + event.surname }}</h3>
+
+  <div i-d-b-key-range="review-form">
+    <form class="review-form" @submit.prevent="onSubmit">
+      <label for="nameD">Docter Name:</label>
+      <input id="nameD" v-model="nameD" />
+      <label for="comment"> Comment to the patient:</label>
+      <textarea id="comment" v-model="comment"></textarea>
+      <input class="button" type="submit" value="Submit" />
+    </form>
+  </div>
+
+  <div id="review-list">
+    <h3>--- Docter Comment ---</h3>
+    <ul>
+      <a v-for="(review, index) in reviews" :key="index">
+        Docter: {{ review.nameD }}
+        <br />
+        Comment: "{{ review.comment }}" <br />-----------------------<br />
+      </a>
+    </ul>
+  </div>
+
+  <div></div>
 </template>
+
+<review-form @review-submitted="addReview"></review-form>
+<review-list v-if="reviews.length" :reviews="reviews"></review-list>
 
 <script>
 export default {
   props: ["id", "event"],
+
+  data() {
+    return {
+      reviews: [
+        {
+          type: Array,
+          required: true,
+          nameD: "Pop",
+          comment: "This paitent need is healthy as always.",
+        },
+      ],
+      nameD: "",
+      comment: "",
+    };
+  },
+  methods: {
+    addReview(review) {
+      this.reviews.push(review);
+      console.log(review);
+    },
+    onSubmit() {
+      if (this.nameD === "" || this.comment === "") {
+        alert("Review is incomplete. please fill out every filed.");
+        return;
+      }
+      let docterComment = {
+        nameD: this.nameD,
+        comment: this.comment,
+      };
+      this.addReview(docterComment);
+
+      this.nameD = "";
+      this.comment = "";
+    },
+  },
 };
 </script>
