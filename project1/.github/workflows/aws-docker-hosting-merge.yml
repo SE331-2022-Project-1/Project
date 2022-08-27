@@ -3,7 +3,7 @@ name: Deploy to Aws Docker on merge
  push:
   branches:
   # this is please change to the 'target branch'
-   - prod-docker
+   - Development-phone2
 jobs:
  docker:
   runs-on: ubuntu-latest
