@@ -1,6 +1,6 @@
 version: "3.9"
 services:
     web:
-        image: "seasoned132porks/se331-2022-Project-1/Project:latest"
+        image: "seasoned132porks/se331-2022-Project-1:latest"
         ports:
               - 8001:80
