@@ -3,7 +3,7 @@ name: Deploy to Aws Docker on merge
  push:
   branches:
   # HOTLOAD
-   - Hotfix
+   - main
 jobs:
  docker:
   runs-on: ubuntu-latest
