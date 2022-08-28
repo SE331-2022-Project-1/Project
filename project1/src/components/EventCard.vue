@@ -1,8 +1,9 @@
 <template>
   <div class="event-card">
     <router-link :to="{ name: 'EventLayout', params: { id: event.id } }">
-      <span>{{ event.name }} {{ event.surname }}</span>
-      <h4>{{ event.vaccinateStatus }}</h4>
+      <a>ID:{{ event.id }} </a>
+      <span> - {{ event.name }} {{ event.surname }}</span>
+      <h4>"{{ event.vaccinateStatus }}"</h4>
     </router-link>
   </div>
 </template>
@@ -24,8 +25,9 @@ export default {
   padding: 20px;
   width: 250px;
   cursor: pointer;
-  border: 1px solid #39495c;
+  border: 1px solid black;
   margin-bottom: 18px;
+  background: white;
 }
 
 .event-card:hover {

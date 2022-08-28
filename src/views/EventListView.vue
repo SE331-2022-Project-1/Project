@@ -99,11 +99,11 @@ export default {
 
 #page-prev {
   text-align: left;
-  color: white;
+  color: red;
 }
 
 #page-next {
   text-align: right;
-  color: white;
+  color: blue;
 }
 </style>

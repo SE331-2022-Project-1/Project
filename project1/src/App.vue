@@ -15,9 +15,13 @@ export default {
 </script>
 
 <style>
+body {
+  background: green;
+}
+
 @keyframes yellowfade {
   from {
-    background: yellow;
+    background: cyan;
   }
   to {
     background: transparent;
