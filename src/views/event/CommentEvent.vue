@@ -1,5 +1,12 @@
 <template>
-  <h3>Patient Name: {{ event.name + " " + event.surname }}</h3>
+  <h3>
+    <a> ID: {{ event.id }} </a>
+    <br />
+    <a>
+      Patient Name:
+      {{ event.name + " " + event.surname }}
+    </a>
+  </h3>
 
   <div i-d-b-key-range="review-form">
     <form class="review-form" @submit.prevent="onSubmit">
@@ -12,6 +19,7 @@
   </div>
 
   <div id="review-list">
+    <br />
     <h3>--- Docter Comment ---</h3>
     <ul>
       <a v-for="(review, index) in reviews" :key="index">
@@ -70,7 +78,7 @@ export default {
       this.nameD = "";
       this.comment = "";
       //flashMessage bruv Meme machine
-      this.GStore.flashMessage = "your commit comment is " + review.comment;
+      this.GStore.flashMessage = "Your Comment have been submit.";
       console.log("eyyo inject done");
       setTimeout(() => {
         this.GStore.flashMessage = "";
@@ -86,3 +94,14 @@ export default {
   },
 };
 </script>
+<style scoped>
+.h3 {
+  color: white;
+}
+.review-form {
+  background: white;
+}
+#review-list {
+  background: cyan;
+}
+</style>
