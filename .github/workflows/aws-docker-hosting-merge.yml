@@ -28,7 +28,7 @@ jobs:
     with:
       context: .
       push: true
-      tags: "seasoned132porks/se331-2022-Project-1:latest"
+      tags: "seasoned132porks/se331-2022-project-1:latest"
    -
     name: docker compose
     uses: alex-ac/github-action-ssh-docker-compose@master
