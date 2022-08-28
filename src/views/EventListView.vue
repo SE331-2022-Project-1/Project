@@ -73,7 +73,7 @@ export default {
   },
   computed: {
     hasNextPage() {
-      let totalPages = Math.ceil(this.totalEvents / 5);
+      let totalPages = Math.ceil(this.totalEvents / 3);
       return this.page < totalPages;
     },
   },
